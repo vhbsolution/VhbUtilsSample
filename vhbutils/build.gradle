@@ -1,4 +1,11 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: "com.jfrog.bintray"
+
+
+
+// This is the library version used when deploying to artifact
+def appVersion = "0.0.1"
 
 android {
     compileSdkVersion 27
@@ -7,7 +14,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
-        versionName "0.0.1"
+        versionName appVersion
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -32,3 +39,137 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
 }
+
+
+def siteUrl = 'https://github.com/vhbsolution/VhbUtilsSample'
+def gitUrl  = 'https://github.com/vhbsolution/VhbUtilsSample.git'
+
+install {
+    repositories.mavenInstaller {
+        //groupId 'br.com.vhbsolution.android.utils'
+        //artifactId 'vhbutils'
+        //version '0.0.1'
+        pom {
+            project {
+                packaging 'aar'
+
+                name = 'vbhutils'
+                description = 'Lib to help developers build apps easily'
+                url = siteUrl
+                licenses {
+                    license {
+                        name = 'The Apache Software License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'repo'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'vtbitencourt'
+                        name = 'Victor Bitencourt'
+                        email = 'victor.bitencourt@vhbsolution.com.br'
+                        organization = 'Vhb Solution'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+// https://github.com/bintray/gradle-bintray-plugin
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = "maven-android"
+        name = 'vhbutils'
+        userOrg = 'vhbsolution'
+        websiteUrl = siteUrl
+        vcsUrl     = gitUrl
+        licenses = ['Apache-2.0']
+        publish    = true
+
+        issueTrackerUrl = 'https://github.com/vhbsolution/VhbUtilsSample/issues'
+
+        version {
+            name = appVersion
+            desc = 'Vbh solution android library'
+            released = new Date()
+            vcsTag = appVersion
+        }
+    }
+}
+
+
+/*
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.key")
+    publications = ['VhbUtilsPublication']
+    pkg {
+        repo = 'maven-android'
+        name = 'VhbUtils'
+        userOrg = 'vhbsolution'
+        licenses = ['Apache-2.0']
+
+        vcsUrl = 'https://github.com/vhbsolution/VhbUtilsSample.git'
+        issueTrackerUrl = 'https://github.com/vhbsolution/VhbUtilsSample/issues'
+
+        publish = true
+
+        version {
+            name = '0.0.1'
+            desc = 'Vbh solution android library'
+            released = new Date()
+            vcsTag = '0.0.1'
+        }
+    }
+}
+
+publishing {
+    publications {
+        VhbUtilsPublication(MavenPublication) {
+            pom.withXml {
+                // Iterate over the compile dependencies (we don't want the test ones), adding a <dependency> node for each
+                configurations.compile.allDependencies.each {
+                    def dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', 'br.com.vhbsolution.android.utils')
+                    dependencyNode.appendNode('artifactId', 'vhbutils')
+                    dependencyNode.appendNode('version', '0.0.1')
+                }
+            }
+        }
+    }
+}
+*/
