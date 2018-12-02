@@ -14,14 +14,6 @@ import android.widget.TextView;
 public class VhbDialogUtils {
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: unexpectedErrorAlertDialog()
-     * DateUtils: 08/02/2017
-     * About: This function helps to build an dialof for unexpected erros in the app
-     * Parameters: AppCompatActivity activity
-     * return: void
-     *************************************************************************/
     public static void unexpectedErrorAlertDialog(AppCompatActivity activity) {
 
         int icon = R.drawable.vhbutils_ic_dialog_error;
@@ -32,14 +24,6 @@ public class VhbDialogUtils {
 
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: unexpectedErrorAlertDialog()
-     * DateUtils: 06/18/2016
-     * About: This function helps to build an dialof for unexpected erros in the app
-     * Parameters: AppCompatActivity activity
-     * return: void
-     *************************************************************************/
     public static void warningMessageDialog(AppCompatActivity activity, String message) {
 
         int icon = R.drawable.vhbutils_ic_dialog_alert;
@@ -48,14 +32,6 @@ public class VhbDialogUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: noConnectionAlertDialog()
-     * DateUtils: 08/02/2017
-     * About: This function helps to build an dialof for unexpected erros in the app
-     * Parameters: AppCompatActivity activity
-     * return: void
-     *************************************************************************/
     public static void noConnectionAlertDialog(AppCompatActivity activity) {
 
         int icon = R.drawable.vhbutils_ic_dialog_connection_off;
@@ -66,14 +42,6 @@ public class VhbDialogUtils {
 
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: unexpectedErrorAlertDialog()
-     * DateUtils: 08/02/2017
-     * About: This function helps to build an dialof for unexpected erros in the app
-     * Parameters: AppCompatActivity activity
-     * return: void
-     *************************************************************************/
     public static void slowConnectionAlertDialog(AppCompatActivity activity) {
 
         int icon = R.drawable.vhbutils_ic_dialog_slow_connection;
@@ -85,14 +53,6 @@ public class VhbDialogUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: createNeutralAppDialog()
-     * DateUtils: 06/18/2017
-     * About:
-     * Parameters:
-     * return: void
-     *************************************************************************/
     public static void createNeutralAppDialog(AppCompatActivity activity, int icon, String title, String message) {
 
         createActionAppDialog(activity,
@@ -109,14 +69,6 @@ public class VhbDialogUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: createSingleActionAppDialog()
-     * DateUtils: 06/18/2017
-     * About:
-     * Parameters:
-     * return: void
-     *************************************************************************/
     public static void createSingleActionAppDialog(AppCompatActivity activity,
                                                    int icon,
                                                    String title,
@@ -139,15 +91,7 @@ public class VhbDialogUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: createMultipleActionAppDialog()
-     * DateUtils: 06/18/2016
-     * About:
-     * Parameters:
-     * return: void
-     *************************************************************************/
-    public static void createMultipleActionAppDialog(AppCompatActivity activity,
+     public static void createMultipleActionAppDialog(AppCompatActivity activity,
                                                      int icon,
                                                      String title,
                                                      String message,
@@ -170,14 +114,6 @@ public class VhbDialogUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: createTripleActionAppDialog()
-     * DateUtils: 06/18/2016
-     * About:
-     * Parameters:
-     * return: void
-     *************************************************************************/
     public static void createTripleActionAppDialog(AppCompatActivity activity,
                                                    int icon,
                                                    String title,
@@ -203,15 +139,7 @@ public class VhbDialogUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: createAppDialogAction()
-     * DateUtils: 06/18/2016
-     * About:
-     * Parameters: Context context
-     * return: boolean - exist
-     *************************************************************************/
-    private static void createActionAppDialog(AppCompatActivity activity,
+ private static void createActionAppDialog(AppCompatActivity activity,
                                               int icon,
                                               String title,
                                               String message,
@@ -268,17 +196,7 @@ public class VhbDialogUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: internetActionSnackBar()
-     * DateUtils: 06/18/2016
-     * About: This function helps to build an actionbar with customized action
-     * Parameters: AppCompatActivity activity
-     *             View view
-     *             int duration
-     * return: void
-     *************************************************************************/
-    public static void internetAlertDialog(AppCompatActivity activity) {
+   public static void internetAlertDialog(AppCompatActivity activity) {
 
         int icon = R.drawable.vhbutils_ic_dialog_connection_off;
         String title = activity.getString(R.string.vhbutils_title_warning_no_connection);

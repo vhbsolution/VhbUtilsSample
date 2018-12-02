@@ -33,15 +33,7 @@ public class VhbSupportUtils {
     private static String TAG = VhbSupportUtils.class.getSimpleName();
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: formatToHTML()
-     * VhbDateUtils: 06/22/2017
-     * About: This function returns html object
-     * Parameters: String text
-     * return: Spanned
-     *************************************************************************/
-    public static Spanned formatToHTML(@NonNull String text) {
+   public static Spanned formatToHTML(@NonNull String text) {
 
         Spanned spanned = null;
 
@@ -60,15 +52,6 @@ public class VhbSupportUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: getSpecificColor()
-     * VhbDateUtils: 06/22/2016
-     * About: This function returns the given color from resources of app
-     * Parameters: Context context
-     *             int specificColor
-     * return: int - color
-     *************************************************************************/
     @SuppressLint("RestrictedApi")
     public static Drawable getSpecificDrawable(Context context, int specificDrawable) {
 
@@ -100,15 +83,7 @@ public class VhbSupportUtils {
         return (int) (fpixels + 0.5f);
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: getSpecificColor()
-     * VhbDateUtils: 06/22/2016
-     * About: This function returns the given color from resources of app
-     * Parameters: Context context
-     *             int specificColor
-     * return: int - color
-     *************************************************************************/
+
     public static int getSpecificColor(Context context, int specificColor) {
 
         int color = 0;
@@ -123,14 +98,6 @@ public class VhbSupportUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: isWifiConnected()
-     * VhbDateUtils: 06/18/2016
-     * About: This function check the connection wifi
-     * Parameters: Context context
-     * return: boolean - exist
-     *************************************************************************/
     public static boolean isWifiConnected(Context context) {
 
         boolean result = false;
@@ -176,15 +143,7 @@ public class VhbSupportUtils {
         return result;
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: checkPlayServices()
-     * VhbDateUtils: 06/18/2016
-     * About: This function verify google play services in the device
-     * Parameters: Context context
-     *             int requestCode
-     * return: boolean - exist
-     *************************************************************************/
+
     /*public static boolean checkPlayServices(Context context, int requestCode) {
 
         GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
@@ -202,15 +161,7 @@ public class VhbSupportUtils {
         return true;
     }*/
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: cryptWithMD5()
-     * VhbDateUtils: 06/18/2016
-     * About: This function makes the encryption of String given with MD5.
-     * Parameters: String text
-     * return: String encrypted
-     *************************************************************************/
-    public static String cryptWithMD5(String s) {
+     public static String cryptWithMD5(String s) {
         final String MD5 = "MD5";
         try {
             // Create MD5 Hash
@@ -236,15 +187,7 @@ public class VhbSupportUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: getVetorDrawableWithColor()
-     * VhbDateUtils: 08/02/2017
-     * About: This function returns a vector drawable with color
-     * Parameters: Context context, int specificDrawable, int specificColor
-     * return: Drawable
-     *************************************************************************/
-    public static Drawable getVetorDrawableWithColor(Context context, int specificDrawable, int specificColor) {
+     public static Drawable getVetorDrawableWithColor(Context context, int specificDrawable, int specificColor) {
 
         try {
 

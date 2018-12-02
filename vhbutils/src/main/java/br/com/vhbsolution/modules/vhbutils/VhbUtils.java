@@ -36,6 +36,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,16 +57,8 @@ public class VhbUtils {
     private static final int WIFI_SETTINGS_RESOLUTION_REQUEST = 130;
 
     private static String TAG = VhbUtils.class.getSimpleName();
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: setupUiTouchListenerForKeyboardDimiss()
-     * DateUtils: 06/18/2016
-     * About: This function returns the app version code
-     * Parameters: AppCompatActivity activity
-     * Parameters: View view
-     * return: void
-     *************************************************************************/
-    public static void setupUiTouchListenerForKeyboardDimiss(final AppCompatActivity activity, View view) {
+
+   public static void setupUiTouchListenerForKeyboardDimiss(final AppCompatActivity activity, View view) {
         // Set up touch listener for non-text box views to hide keyboard.
         if (!(view instanceof EditText)) {
             view.setOnTouchListener(new View.OnTouchListener() {
@@ -85,14 +78,7 @@ public class VhbUtils {
         }
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: getAppVersionCode()
-     * DateUtils: 06/18/2016
-     * About: This function returns the app version code
-     * Parameters: Context context
-     * return: int - version code
-     *************************************************************************/
+
     public static boolean existsActivityInBackStatcy(Context context, String className) {
         ActivityManager mngr = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
         List<ActivityManager.RunningTaskInfo> taskList = mngr.getRunningTasks(2);
@@ -105,14 +91,7 @@ public class VhbUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: getAppVersionCode()
-     * DateUtils: 06/18/2016
-     * About: This function returns the app version code
-     * Parameters: Context context
-     * return: int - version code
-     *************************************************************************/
+
     public static int getAppVersionCode(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
@@ -124,14 +103,7 @@ public class VhbUtils {
 
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: getFormattedString()
-     * DateUtils: 06/18/2017
-     * About: This function format the string
-     * Parameters: String text,  String Formatter
-     * return: String - String Formated
-     *************************************************************************/
+
     public static String getFormattedString(String text, String mask) {
 
         try {
@@ -162,14 +134,16 @@ public class VhbUtils {
 
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: getAppVersionName()
-     * DateUtils: 06/18/2016
-     * About: This function returns the app version name
-     * Parameters: Context context
-     * return: String - version
-     *************************************************************************/
+
+    /**
+     * This function returns the app version name
+     *
+     * @param context Context - application context.
+     * @return String - app version name
+     * @author Victor Bitencourt
+     * @version 1.00
+     * @since First release of application
+     */
     public static String getAppVersionName(Context context) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
@@ -181,14 +155,8 @@ public class VhbUtils {
 
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: isNetworkConnected()
-     * DateUtils: 06/18/2016
-     * About: This function check the network connection
-     * Parameters: Context context
-     * return: boolean - exist
-     *************************************************************************/
+
+
     public static boolean isNetworkConnected(AppCompatActivity activity, boolean showDefaultMessage) {
 
         boolean result = false;
@@ -248,14 +216,6 @@ public class VhbUtils {
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: formatCurrency()
-     * DateUtils: 07/18/2017
-     * About: This function is used to format currency values
-     * Parameters: float value
-     * return: void
-     *************************************************************************/
     public static String formatCurrency(float value) {
 
         NumberFormat mCurrencyFormat = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));

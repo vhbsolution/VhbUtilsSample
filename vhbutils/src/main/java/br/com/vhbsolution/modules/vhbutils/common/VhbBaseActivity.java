@@ -37,15 +37,7 @@ public abstract class VhbBaseActivity extends AppCompatActivity implements IVhbB
     protected View mLayoutView;
     protected View mContainer;
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: showSnackbar()
-     * DateUtils: 06/17/2017
-     * About: This function helps to make easier to use a Snackbar object in the
-     * child classes (activity)
-     * Parameters: boolean show
-     * return: void
-     *************************************************************************/
+
     protected void showSnackbar(String message) {
         Snackbar.make(mContainer,
                 message,
@@ -53,15 +45,7 @@ public abstract class VhbBaseActivity extends AppCompatActivity implements IVhbB
                 .setAction("Action", null).show();
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: showToast()
-     * DateUtils: 06/17/2017
-     * About: This function helps to make esier to use a Toast object in the
-     * child classes (activity)
-     * Parameters: boolean show
-     * return: void
-     *************************************************************************/
+
     protected void showToast(String message) {
         Toast.makeText(this,
                 message,
@@ -70,16 +54,7 @@ public abstract class VhbBaseActivity extends AppCompatActivity implements IVhbB
     }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: showProgress()
-     * DateUtils: 06/17/2017
-     * About: This function helps to control the behavior of progress bar and
-     * layout of main view given. it makes esier to use the progress bar in the
-     * child classes
-     * Parameters: boolean show
-     * return: void
-     *************************************************************************/
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     protected void showProgress(final boolean show) {
 
@@ -104,28 +79,10 @@ public abstract class VhbBaseActivity extends AppCompatActivity implements IVhbB
 
     }
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: beforeViews()
-     * DateUtils: 06/17/2017
-     * About: This function have to be overwrite in the child classes.
-     * it helps to configure things before of the creation of the view
-     * Parameters: null
-     * return: void
-     *************************************************************************/
     public void beforeViews() { }
 
 
-    /**********************************************************************
-     * Author: Victor Bitencourt
-     * Method: initViews()
-     * DateUtils: 06/17/2017
-     * About: This function have to be overwrite in the child classes.
-     * it helps initialize the components/fields that will be used in the class
-     * Parameters: null
-     * return: void
-     *************************************************************************/
-    abstract protected void initViews();
+   abstract protected void initViews();
 
 
     @Override

@@ -19,7 +19,8 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url  "https://dl.bintray.com/vhbsolution/maven-android" }
+        maven { url  'https://dl.bintray.com/vhbsolution/maven-android' }
+
     }
 }
 
